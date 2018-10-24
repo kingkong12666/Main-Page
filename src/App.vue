@@ -55,7 +55,7 @@
       </v-menu>
 
     </div>
-
+    <v-container fluid grid-list-sm>
     <v-layout>
       <v-flex>
         <v-carousel hide-controls>
@@ -74,7 +74,6 @@
       </v-flex>
     </v-layout>
 
-    <v-container fluid grid-list-sm>
       <h1>Products</h1>
       <v-layout>
         <v-flex
@@ -90,7 +89,29 @@
           </v-img>
         </v-flex>
       </v-layout>
+      <v-layout row wrap text-xs-center grid-list-md style="margin-top: 40px">
+        <v-flex v-for="item in infoItems" :key="`6${i}`" xs6>
+          <v-img
+            class="px-0"
+            :src="require(`./image/${item.src}`)"
+
+          >
+            <div class="infoContent">
+              <p class="infoTitle">{{item.title}}</p>
+            </div>
+          </v-img>
+        </v-flex>
+      </v-layout>
     </v-container>
+
+    <header>
+      <div class="headerContent">
+
+        <sapn class="copy">&copy; Solution for retail. All rights reserved</sapn>
+        <span class="footer">LEGAL | SITEMAP | CONTACTS</span>
+      </div>
+    </header>
+
 
   </v-app>
 </template>
@@ -109,6 +130,16 @@ export default {
         },
         {
           src: 'mainPhoto.png'
+        }
+      ],
+      infoItems: [
+        {
+          src: 'portfolio.png',
+          title: 'Portfolio'
+        },
+        {
+          src: 'portfolio.png',
+          title: 'About'
         }
       ],
       productItems: [
@@ -141,6 +172,33 @@ export default {
 }
 </script>
 <style>
+  .footer{
+    color: white;
+    font-size: 14px;
+    position: relative;
+    float: right;
+    margin-right: 135px;
+  }
+  .copy{
+    color: white;
+    font-size: 14px;
+    position: relative;
+
+  }
+  .infoTitle{
+    color: white;
+    font-size: 48px;
+  }
+  .infoContent{
+    position: relative;
+    top: 40%;
+    display: table;
+    width: 100%;
+  }
+  .infoTitle{
+    vertical-align: middle;
+  }
+
   .productContent > p {
     color: white;
     font-size: 12px;
@@ -160,7 +218,6 @@ export default {
     color: #002258;
   }
   .container.fluid {
-    top: 240px;
     position: relative;
     margin-left: 135px;
     margin-right: 135px;
@@ -195,8 +252,7 @@ export default {
     background: none;
   }
   .v-carousel{
-    width: 80%;
-    margin-left: 135px;
+    width: 100%;
     margin-top: 15px;
   }
   header{
