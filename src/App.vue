@@ -60,8 +60,7 @@
       <v-flex>
         <v-carousel hide-controls>
           <v-carousel-item
-            v-for="(item,i) in carouselItems"
-            :key="i"
+            v-for="item in carouselItems"
             :src="require(`./image/${item.src}`)"
           >
             <div class="carouselContent">
@@ -77,27 +76,26 @@
       <h1>Products</h1>
       <v-layout>
         <v-flex
-          v-for="(item,i) in productItems"
-          :key="i"
+          v-for="item in productItems"
           xs6 sm4>
           <v-img
             :src="require(`./image/${item.src}`)"
           >
             <div class="productContent">
-              <p>{{item.title}}</p>
+              <p class="font-weight-light">{{item.title}}</p>
             </div>
           </v-img>
         </v-flex>
       </v-layout>
       <v-layout row wrap text-xs-center grid-list-md style="margin-top: 40px">
-        <v-flex v-for="item in infoItems" :key="`6${i}`" xs6>
+        <v-flex v-for="item in infoItems"  xs6>
           <v-img
             class="px-0"
             :src="require(`./image/${item.src}`)"
 
           >
             <div class="infoContent">
-              <p class="infoTitle">{{item.title}}</p>
+              <p class="infoTitle font-weight-light">{{item.title}}</p>
             </div>
           </v-img>
         </v-flex>
@@ -107,8 +105,8 @@
     <header>
       <div class="headerContent">
 
-        <sapn class="copy">&copy; Solution for retail. All rights reserved</sapn>
-        <span class="footer">LEGAL | SITEMAP | CONTACTS</span>
+        <sapn class="copy font-weight-light">&copy; Solution for retail. All rights reserved</sapn>
+        <span class="footer font-weight-light">LEGAL | SITEMAP | CONTACTS</span>
       </div>
     </header>
 
@@ -183,7 +181,7 @@ export default {
     color: white;
     font-size: 14px;
     position: relative;
-
+    font-family: Roboto,sans-serif;
   }
   .infoTitle{
     color: white;
@@ -205,6 +203,7 @@ export default {
     text-align: center;
     vertical-align: middle;
     display: table-cell;
+    font-family: Roboto,sans-serif;
   }
   .productContent{
     background-color: rgba(0,0,0,.5);
@@ -274,6 +273,7 @@ export default {
     margin-left: 135px;
   }
 
+
   .v-btn{
     color: #002258;
     vertical-align: middle;
@@ -283,6 +283,7 @@ export default {
   }
   .theme--light.v-btn:not(.v-btn--icon):not(.v-btn--flat){
     background-color: #fff;
+
   }
   .theme--light.application{
     background-color: #fff;
